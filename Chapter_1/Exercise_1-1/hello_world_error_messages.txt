@@ -1,0 +1,36 @@
+Removing the #inlcude directive yields:
+    _world.c: In function ‘int main()’:
+    hello_world.c:4:28: error: ‘printf’ was not declared in this scope
+         printf("hello, world\n");
+The compiler does not know what 'printf' means, because we have not given this function a declaration nor a definition.
+
+Removing 'main()' yields:
+    _world.c:3:1: error: expected unqualified-id before ‘{’ token
+     {
+
+Removing 'printf' yields:
+Surprisingly (to me, anyways) there were no compiler errors!
+
+Removing 'printf' and it's parentheses:
+    hello_world.c: In function ‘int main()’:
+    hello_world.c:6:1: error: expected ‘;’ before ‘}’ token
+     }
+The compiler must be checking for semicolons closing brackets. I think in the book they mention blank/empty function
+bodies needing at least a semicolon.
+
+Removing printf, its parentheses, but leaving the semicolon:
+As I suspected, no compiler errors.
+
+Removing the double quotes inside the call to printf():
+    hello_world.c:5:5: error: stray ‘\’ in program
+    printf(hello, world\n);
+    ^
+    hello_world.c: In function ‘int main()’:
+    hello_world.c:5:12: error: ‘hello’ was not declared in this scope
+    printf(hello, world\n);
+    ^
+    hello_world.c:5:19: error: ‘world’ was not declared in this scope
+    printf(hello, world\n);
+Since printf() is not receiving a string, it is probably checking to see if these parameters are actually defined
+elsewhere, and sees they are not.
+

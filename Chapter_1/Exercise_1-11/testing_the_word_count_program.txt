@@ -1,0 +1,12 @@
+    The key to testing any program thoroughly is to test edge cases. Can the
+word count program count one-letter words? Can it count hyphenated words?
+What if there's a typo in the input? How are those handled? Does the program
+still work in languages other than English?
+
+    In addition to the above, and to answer the 'how' of the testing more
+practically, the word count program could be modified to receive files as
+inputs -- this way we can test the program more rigorously. However, this
+approach would also require us to know the correct word count outputs
+ahead of time. Thus, we could feed short test files (for which we know
+the 'answers' to) into the program and check the results in an automated
+way.

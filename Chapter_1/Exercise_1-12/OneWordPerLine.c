@@ -1,8 +1,5 @@
 #include <stdio.h>
 
-#define INSIDE_WORD     1
-#define OUTSIDE_WORD    0
-
 main()
 {
     int c = 0;
